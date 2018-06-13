@@ -16,3 +16,15 @@ function findById(items, idNum) {
   return items.find(item => item.id === idNum);
 }
 
+function validateKeys(object, expectedKeys) {
+  actualKeys = Object.keys(object);
+  if (actualKeys.length !== expectedKeys.length){
+    return false;
+  }
+  for(let i = 0; i < expectedKeys.length; i++){
+    if(actualKeys.find(key => key == expectedKeys[i]) == undefined){
+      return false;
+    }
+  }
+  return true;
+}
