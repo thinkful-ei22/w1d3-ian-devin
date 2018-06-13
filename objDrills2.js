@@ -100,8 +100,49 @@ console.log(cypher.decodeWords('craft block argon meter bells brown croon droop'
 
 //Drill 7
 
+class Character {
+  constructor(name, nickname, race, origin, attack, defense, weapon){
+    this.name = name;
+    this.nickname = nickname;
+    this.race = race;
+    this.origin = origin;
+    this.attack = attack;
+    this.defense = defense;
+    this.weapon = weapon;
+  }
+  descibe(){
+    console.log(`${this.name} is a ${this.race} from ${this.origin} who uses a ${this.weapon}.`);
+  }
+  
+  fightMath(attack, defense){
+    return defense > attack ? 0 : attack - defense;
+  }
+  
+  evaluateFight(character){
+    let damageIn = this.fightMath(character.attack, this.defense);
+    let damageOut = this.fightMath(this.attack, character.defense);
+    return `Your opponent takes ${damageOut} damage and you receive ${damageIn} damage`;
+  }
+}
 
+let characters = [
+  new Character('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6),
+  new Character('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2, 1),
+  new Character('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3, 2),
+  new Character('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8),
+  new Character('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5)
+];
 
+console.log(characters);
 
+characters.push(new Character('Arwen Undomiel','arry', 'Half-Elf', 'Rivendell', 16, 7));
 
+console.log(characters);
 
+characters.find(char => char.nickname === 'aragorn').descibe();
+
+console.log(characters.filter(char => char.race === 'Hobbit'));
+
+console.log(characters.filter(char => char.attack > 5));
+
+// BONUS A
