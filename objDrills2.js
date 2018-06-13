@@ -67,13 +67,13 @@ let link  = {
 let characterArray = [solaire, bill, mario, luigi, link];
 
 characterArray.forEach(function(char){
-  if(char.boss == undefined){
-    console.log(`${char.jobTitle} ${char.name} doesn't report to anybody.`)
+  if(char.boss === undefined){
+    console.log(`${char.jobTitle} ${char.name} doesn't report to anybody.`);
   }
   else {
-  console.log(`${char.jobTitle} ${char.name} reports to ${char.boss}`);
+    console.log(`${char.jobTitle} ${char.name} reports to ${char.boss}`);
   }
-})
+});
 
 //Drill 6
 
@@ -84,7 +84,7 @@ let cypher = {
   d: 4,
   default: ' ',
   decodeWord: function(word){
-    if(this[word[0]] == undefined){
+    if(this[word[0]] === undefined){
       return this.default;
     }
     else{
@@ -145,4 +145,33 @@ console.log(characters.filter(char => char.race === 'Hobbit'));
 
 console.log(characters.filter(char => char.attack > 5));
 
+
 // BONUS A
+const HEROES = [
+  { id: 1, name: 'Captain America', squad: 'Avengers' },
+  { id: 2, name: 'Iron Man', squad: 'Avengers' },
+  { id: 3, name: 'Spiderman', squad: 'Avengers' },
+  { id: 4, name: 'Superman', squad: 'Justice League' },
+  { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
+  { id: 6, name: 'Aquaman', squad: 'Justice League' },
+  { id: 7, name: 'Hulk', squad: 'Avengers' },
+];
+
+function findOne(arr, query){
+  let hero = arr.find(function(char){
+    let result = true;
+
+    for(const key in query){
+      result = result & query[key] === char[key];
+    }
+    return result;
+  });
+
+  return hero ? hero : null;
+}
+
+console.log(findOne(HEROES, { id: 1 }));
+console.log(findOne(HEROES, { id: 10 }));
+console.log(findOne(HEROES, { id: 2, name: 'Aquaman' }));
+console.log(findOne(HEROES, { id: 5, squad: 'Justice League' }));
+console.log(findOne(HEROES, { squad: 'Justice League' }));
