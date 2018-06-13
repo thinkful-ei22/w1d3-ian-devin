@@ -1,5 +1,6 @@
 'use strict';
 
+//Drill 1
 let loaf = {};
 loaf.flour = 300;
 loaf.water = 210;
@@ -10,7 +11,7 @@ loaf.hydration = function(){
 
 console.log(loaf.hydration());
 
-
+//Drill 2
 let objectTwo = {
   foo: 'I AM A VERY POWERFUL',
   bar: 21,
@@ -24,3 +25,10 @@ let objectTwo = {
 for(const key in objectTwo){
   console.log(`${key}: ${objectTwo[key]}`);
 }
+
+//Drill 3
+let hobbit = {
+  meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']
+}
+console.log(hobbit.meals[3]);
+
