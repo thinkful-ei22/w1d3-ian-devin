@@ -175,3 +175,32 @@ console.log(findOne(HEROES, { id: 10 }));
 console.log(findOne(HEROES, { id: 2, name: 'Aquaman' }));
 console.log(findOne(HEROES, { id: 5, squad: 'Justice League' }));
 console.log(findOne(HEROES, { squad: 'Justice League' }));
+
+
+const Database = {
+  store: {
+    heroes: [
+      { id: 1, name: 'Captain America', squad: 'Avengers' },
+      { id: 2, name: 'Iron Man', squad: 'Avengers' },
+      { id: 3, name: 'Spiderman', squad: 'Avengers' },
+      { id: 4, name: 'Superman', squad: 'Justice League' },
+      { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
+      { id: 6, name: 'Aquaman', squad: 'Justice League' },
+      { id: 7, name: 'Hulk', squad: 'Avengers' },
+    ]
+  },
+  findOne: function(query){
+    let hero = this.store.heroes.find(function(char){
+      let result = true;
+  
+      for(const key in query){
+        result = result & query[key] === char[key];
+      }
+      return result;
+    });
+  
+    return hero ? hero : null;
+  }
+};
+console.log(Database.findOne({ id: 2 }));
+
