@@ -29,6 +29,34 @@ for(const key in objectTwo){
 //Drill 3
 let hobbit = {
   meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']
-}
+};
 console.log(hobbit.meals[3]);
 
+let solaire = {
+  name: 'Solaire',
+  jobTitle: 'Warrior of Sunlight'
+};
+
+let bill = {
+  name: 'Bill Nye',
+  jobTitle: 'Science Guy'
+};
+
+let mario  = {
+  name: 'Mario Mario',
+  jobTitle: 'Plumber'
+};
+
+let luigi = {
+  name: 'Luigi Mario',
+  jobTitle: 'Green Mario'
+};
+
+let link  = {
+  name: 'Link',
+  jobTitle: 'Hero of Time'
+};
+
+let characterArray = [solaire, bill, mario, luigi, link];
+
+characterArray.forEach(char => console.log(`Name: ${char.name}\nJob:  ${char.jobTitle}`));
