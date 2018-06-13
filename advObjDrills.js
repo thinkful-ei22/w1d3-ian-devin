@@ -17,12 +17,12 @@ function findById(items, idNum) {
 }
 
 function validateKeys(object, expectedKeys) {
-  actualKeys = Object.keys(object);
+  let actualKeys = Object.keys(object);
   if (actualKeys.length !== expectedKeys.length){
     return false;
   }
   for(let i = 0; i < expectedKeys.length; i++){
-    if(actualKeys.find(key => key == expectedKeys[i]) == undefined){
+    if(actualKeys.find(key => key === expectedKeys[i]) === undefined){
       return false;
     }
   }
