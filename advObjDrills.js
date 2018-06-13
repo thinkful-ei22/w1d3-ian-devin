@@ -10,3 +10,9 @@ function enrollInSummerSchool(students) {
     return record;
   });
 }
+
+
+function findById(items, idNum) {
+  return items.find(item => item.id === idNum);
+}
+
